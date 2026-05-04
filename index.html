@@ -20,7 +20,7 @@ Third-party libraries and external services retain their own licenses and terms.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Capacity Expansion and Dispatch Prototype v0.99</title>
+  <title>Capacity Expansion and Dispatch Prototype v1.00</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
@@ -134,7 +134,7 @@ Third-party libraries and external services retain their own licenses and terms.
 <body>
 <header>
   <div class="header-main">
-    <h1>Capacity Expansion and Time-Sequential Dispatch Prototype v0.99</h1>
+    <h1>Capacity Expansion and Time-Sequential Dispatch Prototype v1.00</h1>
     <p>Browser-only learning model. Full-year 8,760-hour framing. No local Python required. Open-source under GPL-3.0-or-later, with embedded PLEXOS-World demand-shape attribution.</p>
   </div>
   <div class="header-status">
@@ -391,7 +391,7 @@ Third-party libraries and external services retain their own licenses and terms.
 
     <div id="tab-docs" class="pane hidden docsection">
       <h3>Embedded developer documentation and handover</h3>
-      <div class="doccallout"><strong>Purpose.</strong> This documentation makes the HTML self-explanatory in a new development session. It describes the current v0.91 structure, data flow, formulation and known limits so the next maintainer can patch the file without rebuilding it from scratch.</div>
+      <div class="doccallout"><strong>Purpose.</strong> This documentation makes the HTML self-explanatory in a new development session. It describes the current v1.00 structure, data flow, formulation and known limits so the next maintainer can patch the file without rebuilding it from scratch.</div>
 
       <details open><summary>0. Publication, licensing and data attribution</summary>
         <div class="licenselist">
@@ -404,8 +404,8 @@ Third-party libraries and external services retain their own licenses and terms.
         </div>
       </details>
 
-      <details open><summary>1. Current product intent and v0.90 scope</summary>
-        <div class="doccallout"><strong>v0.90 position.</strong> The app shell is v0.91. It is framed as a year-long time-sequential least-cost capacity expansion and dispatch teaching model for a hub-and-spoke representation of a power grid. The preloaded case remains the supplied v0.51 JSON setup.</div>
+      <details open><summary>1. Current product intent and v1.00 scope</summary>
+        <div class="doccallout"><strong>v1.00 position.</strong> The app shell is v1.00. It is framed as a year-long time-sequential least-cost capacity expansion and dispatch teaching model for a hub-and-spoke representation of a power grid. The preloaded case remains the supplied v0.51 JSON setup.</div>
         <p>The app is a single-file, browser-only capacity expansion and dispatch prototype for mini-grids, remote systems, industrial hubs, local energy systems and partially grid-connected supply-demand problems.</p>
         <p>The model solves a linear optimisation problem over up to 8,760 hourly intervals. It chooses new capacity for candidate technologies and dispatches them hour by hour to minimise annualised system cost while satisfying demand, storage, import, emissions, reliability and policy constraints.</p>
         <p>It is not a production-grade market model or electrical network-planning platform. It does not include unit commitment, integer build blocks, alternating-current power flow, contingency analysis, voltage constraints, inertia, frequency security, detailed hydro scheduling, forced-outage sampling or stochastic weather-year ensembles.</p>
@@ -581,11 +581,11 @@ available_wind_at_node[t]  = wind_dispatch[t]  + wind_dump[t]</pre>
       </details>
 
       <details open><summary>9. Decision-use outputs and governance framing</summary>
-        <p>v0.90 keeps the results area framed around decisions rather than metrics. The Decision Summary panel states the feasibility condition, primary cost driver, binding constraints and economic-fragility flags in plain language.</p>
+        <p>v1.00 keeps the results area framed around decisions rather than metrics. The Decision Summary panel states the feasibility condition, primary cost driver, binding constraints and economic-fragility flags in plain language.</p>
         <p>The binding-constraint panel deliberately avoids dual-value language. It reports whether build limits, minimum build requirements, firm availability, storage power and energy limits, grid import caps, emissions caps, unserved-energy caps or renewable-share requirements are binding or near-binding.</p>
         <p>The commercial-reality panel translates reliability and firming into economic terms: Value of Lost Load exposure, firming insurance cost, External Grid Interface reliance and conditional LCOE. This is intended for investment-committee style discussion, not only engineering review.</p>
         <p>The visible model-boundary panel is part of the governance design. It states that the model does not answer questions about network security, revenue sufficiency, price formation, tail risk or investment approval.</p>
-        <p>The stress-test layer is opt-in. It reruns the same linear model with simple shocks to demand, renewable output, storage efficiency, firm availability and carbon price, then reports cost, reliability and emissions deltas without overwriting the base solution. Stress progress and elapsed time are mirrored in the top header status bar, which is split into a right-hand status cell to reduce vertical space. Solved stress rows can be plotted in the Operational view result selector or from the stress-results table. In v0.96 the results area keeps cash-cost diagnostics: a time series of hourly marginal cash cost and hourly average cash cost for the selected plotted result, plus a single-hour merit-order cost curve with the average cash cost and the marginal cash cost shown as dotted horizontal lines.</p>
+        <p>The stress-test layer is opt-in. It reruns the same linear model with simple shocks to demand, renewable output, storage efficiency, firm availability and carbon price, then reports cost, reliability and emissions deltas without overwriting the base solution. Stress progress and elapsed time are mirrored in the top header status bar, which is split into a right-hand status cell to reduce vertical space. Solved stress rows can be plotted in the Operational view result selector or from the stress-results table. The results area keeps cash-cost diagnostics: a capped operational time-series view of hourly marginal cash cost and hourly average cash cost for the selected plotted result, summary averages for the full year and selected range, plus a single-hour merit-order cost curve with the average cash cost and the marginal cash cost shown as dotted horizontal lines.</p>
       </details>
 
       <details open><summary>12. Results, Levelised Cost of Electricity bridge and operational charts</summary>
@@ -593,7 +593,7 @@ available_wind_at_node[t]  = wind_dispatch[t]  + wind_dump[t]</pre>
           <li><strong>KPI tiles:</strong> solve status, annual cost, Levelised Cost of Electricity, emissions, unserved energy and dumped power.</li>
           <li><strong>Capacity and energy bars:</strong> high-level technology-group summaries.</li>
           <li><strong>System-wide Levelised Cost of Electricity bridge:</strong> separates renewable, firm, storage, import, carbon, reliability and curtailment cost drivers.</li>
-          <li><strong>Operational view:</strong> day-time slicer, persistent bottom slicer, stack-order controls, demand-framing chart, supply-demand stack chart, dumping and charging chart, storage state-of-charge chart, hourly cash-cost chart and single-hour merit-order cost curve.</li>
+          <li><strong>Operational view:</strong> day-time slicer, persistent bottom slicer, stack-order controls, demand-framing chart, supply-demand stack chart, dumping and charging chart, storage state-of-charge chart, hourly cash-cost chart and single-hour merit-order cost curve. Dense operational charts are capped to 720 rendered hours, equal to 30 days, while demand-framing traces and annual calculations can still use the full 8,760-hour year.</li>
           <li><strong>Detailed tables:</strong> capacity, annual energy, energy-balance audit and optimal-versus-user-system comparison.</li>
         </ul>
         <p>The Levelised Cost of Electricity denominator is served demand in MWh, not gross generation or storage discharge.</p>
@@ -662,7 +662,7 @@ available_wind_at_node[t]  = wind_dispatch[t]  + wind_dump[t]</pre>
           <li>No direct authenticated in-browser Renewables.ninja fetch.</li>
           <li>Embedded PLEXOS demand is compressed, not a raw byte-for-byte copy.</li>
           <li>External solver and map dependencies require internet access unless vendored locally.</li>
-          <li>v0.90 retains hardened solver loading by trying GitHub Pages, jsDelivr and unpkg paths for HiGHS JavaScript/WebAssembly before reporting a diagnostic failure. This improves mobile and corporate-network resilience but still requires that the browser allow WebAssembly, web workers and external CDN downloads.</li>
+          <li>v1.00 retains hardened solver loading by trying GitHub Pages, jsDelivr and unpkg paths for HiGHS JavaScript/WebAssembly before reporting a diagnostic failure. This improves mobile and corporate-network resilience but still requires that the browser allow WebAssembly, web workers and external CDN downloads.</li>
           <li>The file has accumulated iterative patch functions. If the tool becomes a maintained product, consolidate duplicate overrides or split into modules.</li>
           <li>Feasibility diagnostics should be improved.</li>
           <li>Tooltip and chart hit-testing are basic nearest-hour logic.</li>
@@ -759,8 +759,8 @@ My requested change is: [insert requested change here]</pre>
     </div>
     <div class="twocol"><div class="card"><h3>Capacity built or available</h3><div id="capacityBars"></div></div><div class="card"><h3>Annual energy</h3><div id="energyBars"></div></div></div>
     <div class="card" style="margin-top:12px"><h3>Cost composition of this feasible system</h3><p class="small">This is a cost bridge, not a tariff, market price or investment answer. The conditional LCOE is annual all-in system cost divided by annual served demand for this feasible modelled system. It excludes risk, optionality, network security and revenue sufficiency.</p><div id="lcoeSummary" class="lcoetiles"></div><div class="lcoeexplainer" id="lcoeExplainer">Run the optimiser to populate the cost bridge. Denominator is served demand in MWh per year, not gross generation or Energy Storage System discharge. Treat conditional LCOE as one diagnostic, not the decision.</div><h3>Cost by system function</h3><div id="lcoeFunctionalBars"></div><h3>Detailed cost components</h3><table id="lcoeDetailTable"></table></div>
-    <div class="card" style="margin-top:12px"><h3>Operational view</h3><p class="small">Use the day-time slicer, or the persistent bottom slicer, to inspect full-day or custom hourly slices of the selected solved result. Chart X axes use timestamps from the model start date. Energy Storage System charging is shown below zero. Dumping means renewable energy available in that hour that is neither served nor stored.</p><div class="note">Hourly balance: demand equals dispatched supply plus Energy Storage System discharge plus External Grid Interface plus unserved energy minus Energy Storage System charging. Renewable availability is also balanced: available solar equals dispatched solar plus dumped solar, and available wind equals dispatched wind plus dumped wind.</div><div class="demandframe"><h3>Demand being framed before optimisation</h3><p class="small">This chart is available before optimisation is run. It shows the current demand stack being framed from uploaded reference demand, PLEXOS and load-builder additions, and compares it with the active model demand profile where available. It uses the same day-level slicer below.</p><div id="demandFrameSummary" class="framesummary">No demand profile has been framed yet.</div><div class="buttons"><button class="ghost" id="renderDemandFrame" type="button">Render demand framing chart</button><button class="ghost" id="applyFramedDemand" type="button">Apply framed demand to model</button></div><div class="canvaswrap"><canvas id="demandFrameCanvas" class="opcanvas smallcanvas"></canvas></div></div><div class="orderbox"><div class="row plotrow"><div><label>Result set to plot</label><select id="plotResultMode"><option value="optimal" selected>Optimised system</option><option value="user">User-entered system</option></select></div><div><label>Plotted result</label><input id="plotResultLabel" type="text" value="Optimised system" readonly></div></div><p class="small">This changes only the operational charts below. Stress-test rows become available here after successful stress solves. Selecting User-entered system will solve fixed user-system dispatch first if needed, then plot it. KPI tiles and the main capacity and energy tables continue to show the optimised base system.</p></div><div class="slicerbox"><div class="slicerhead"><strong>Day-time slicer</strong><span id="sliceLabel">Selected period: full year</span></div><label>Start day</label><input id="opDayRange" type="range" value="1" min="1" max="365" step="1"><div class="tickrow"><span id="sliceStartLabel">Day 1</span><span id="sliceMidLabel">Day 183</span><span id="sliceEndLabel">Day 365</span></div><label>Days to show</label><input id="opDaysRange" type="range" value="365" min="1" max="365" step="1"><div class="grid3"><div><label>Slice mode</label><select id="opSliceMode"><option value="days" selected>Full selected days</option><option value="hours">Custom hourly window</option></select></div><div><label>Start hour within start day</label><input id="opStartHourOfDay" type="number" value="0" min="0" max="23" step="1"></div><div><label>Window length, hours</label><input id="opWindowHours" type="number" value="8760" min="1" step="1"></div></div><div class="slicehint">Use full selected days for normal review. Switch to custom hourly window to start within a day and inspect a precise number of hours, for example 6:00 for 18 hours. All charts, legends, tooltips and the persistent bottom slicer follow the selected result and window.</div></div><div class="opcontrols"><div><label>Start day</label><input id="opStartDay" type="number" value="1" min="1" step="1"></div><div><label>Days to show</label><input id="opDays" type="number" value="365" min="1" step="1"></div><div><label>Quick view</label><select id="opPreset"><option value="1">One day</option><option value="7">One week</option><option value="30">One month</option><option value="90">Quarter</option><option value="365" selected>Full year</option></select></div><div><label>Selected hours</label><input id="opHourWindow" type="text" value="0 to 8759" readonly></div></div><div class="orderbox"><div class="row"><div><label>Stack order preset</label><select id="stackPreset"><option value="renewables" selected>Renewables first</option><option value="firmfirst">Firm and grid first</option><option value="storagefirst">Storage first</option><option value="shortfall">Shortfall emphasis</option><option value="custom">Custom</option></select></div><div><label>Custom stack order</label><input id="stackOrder" type="text" value="solar, wind, dis, firm, grid, unserved"></div><button class="ghost" id="applyStackOrder" type="button">Apply order</button><button class="ghost" id="resetStackOrder" type="button">Reset</button></div><p class="small">Allowed keys: solar, wind, dis, firm, grid, unserved. This changes only the visual stacking order, not the optimisation result.</p></div><div class="buttons"><button class="secondary" id="renderSlice" disabled>Render operational view</button><button class="ghost" id="showWorstShortfall" disabled>Show worst shortfall</button><button class="ghost" id="showPeakDemand" disabled>Show peak demand</button><button class="ghost" id="showMaxDump" disabled>Show maximum dump</button></div><div class="opsection"><h3>Supply-demand stack chart</h3><p class="small">Stacked supply shows how solar, wind, firm generation, Energy Storage System discharge, External Grid Interface imports and any unserved energy meet node demand over the selected period. Energy Storage System charging is shown below zero because it is load on the system.</p><div id="opLegend" class="legend hidden" aria-hidden="true"></div><p class="small">The chart legend is generated from active candidate-level series in the selected time window. Drag the legend box to reposition it.</p><div class="canvaswrap"><canvas id="dispatchCanvas" class="opcanvas"></canvas></div></div><h3>Dumped power and Energy Storage System charging</h3><p class="small">Positive values show dumped renewable power. Negative values show Energy Storage System charging, which absorbs surplus before dumping if it is economic and capacity is available.</p><div class="canvaswrap"><canvas id="dumpCanvas" class="opcanvas smallcanvas"></canvas></div><h3>Energy Storage System state of charge</h3><div class="canvaswrap"><canvas id="socCanvas" class="opcanvas smallcanvas"></canvas></div>
-<h3>Hourly marginal and average cash cost</h3><p class="small">Shows the selected plotted result: optimised system, user-entered system or plotted stress case. Marginal cost is a short-run cash-cost proxy from the highest-cost dispatched block in each hour, with unserved energy setting the Value of Lost Load when present. Average cash cost is hourly variable, import, carbon, unserved and dumping cash cost divided by served node demand. It is not a market price and it excludes capacity recovery. Click or tap a point on this chart to set the merit-order hour below.</p><div class="canvaswrap"><canvas id="cashCostCanvas" class="opcanvas smallcanvas"></canvas></div>
+    <div class="card" style="margin-top:12px"><h3>Operational view</h3><p class="small">Use the day-time slicer, or the persistent bottom slicer, to inspect full-day or custom hourly slices of the selected solved result. Demand-framing traces can show the full selected period, while dense operational charts are capped to a 30-day rendered window for browser performance. Chart X axes use timestamps from the model start date. Energy Storage System charging is shown below zero. Dumping means renewable energy available in that hour that is neither served nor stored.</p><div class="note">Hourly balance: demand equals dispatched supply plus Energy Storage System discharge plus External Grid Interface plus unserved energy minus Energy Storage System charging. Renewable availability is also balanced: available solar equals dispatched solar plus dumped solar, and available wind equals dispatched wind plus dumped wind.</div><div class="demandframe"><h3>Demand being framed before optimisation</h3><p class="small">This chart is available before optimisation is run. It shows the current demand stack being framed from uploaded reference demand, PLEXOS and load-builder additions, and compares it with the active model demand profile where available. It uses the same day-level slicer below.</p><div id="demandFrameSummary" class="framesummary">No demand profile has been framed yet.</div><div class="buttons"><button class="ghost" id="renderDemandFrame" type="button">Render demand framing chart</button><button class="ghost" id="applyFramedDemand" type="button">Apply framed demand to model</button></div><div class="canvaswrap"><canvas id="demandFrameCanvas" class="opcanvas smallcanvas"></canvas></div></div><div class="orderbox"><div class="row plotrow"><div><label>Result set to plot</label><select id="plotResultMode"><option value="optimal" selected>Optimised system</option><option value="user">User-entered system</option></select></div><div><label>Plotted result</label><input id="plotResultLabel" type="text" value="Optimised system" readonly></div></div><p class="small">This changes only the operational charts below. Stress-test rows become available here after successful stress solves. Selecting User-entered system will solve fixed user-system dispatch first if needed, then plot it. KPI tiles and the main capacity and energy tables continue to show the optimised base system.</p></div><div class="slicerbox"><div class="slicerhead"><strong>Day-time slicer</strong><span id="sliceLabel">Selected period: full year</span></div><label>Start day</label><input id="opDayRange" type="range" value="1" min="1" max="365" step="1"><div class="tickrow"><span id="sliceStartLabel">Day 1</span><span id="sliceMidLabel">Day 183</span><span id="sliceEndLabel">Day 365</span></div><label>Days to show</label><input id="opDaysRange" type="range" value="365" min="1" max="365" step="1"><div class="grid3"><div><label>Slice mode</label><select id="opSliceMode"><option value="days" selected>Full selected days</option><option value="hours">Custom hourly window</option></select></div><div><label>Start hour within start day</label><input id="opStartHourOfDay" type="number" value="0" min="0" max="23" step="1"></div><div><label>Window length, hours</label><input id="opWindowHours" type="number" value="8760" min="1" step="1"></div></div><div class="slicehint">Use full selected days for normal review. Switch to custom hourly window to start within a day and inspect a precise number of hours, for example 6:00 for 18 hours. All charts, legends, tooltips and the persistent bottom slicer follow the selected result and window.</div></div><div class="opcontrols"><div><label>Start day</label><input id="opStartDay" type="number" value="1" min="1" step="1"></div><div><label>Days to show</label><input id="opDays" type="number" value="365" min="1" step="1"></div><div><label>Quick view</label><select id="opPreset"><option value="1">One day</option><option value="7">One week</option><option value="30">One month</option><option value="90">Quarter</option><option value="365" selected>Full year</option></select></div><div><label>Selected hours</label><input id="opHourWindow" type="text" value="0 to 8759" readonly></div></div><div class="orderbox"><div class="row"><div><label>Stack order preset</label><select id="stackPreset"><option value="renewables" selected>Renewables first</option><option value="firmfirst">Firm and grid first</option><option value="storagefirst">Storage first</option><option value="shortfall">Shortfall emphasis</option><option value="custom">Custom</option></select></div><div><label>Custom stack order</label><input id="stackOrder" type="text" value="solar, wind, dis, firm, grid, unserved"></div><button class="ghost" id="applyStackOrder" type="button">Apply order</button><button class="ghost" id="resetStackOrder" type="button">Reset</button></div><p class="small">Allowed keys: solar, wind, dis, firm, grid, unserved. This changes only the visual stacking order, not the optimisation result.</p></div><div class="buttons"><button class="secondary" id="renderSlice" disabled>Render operational view</button><button class="ghost" id="showWorstShortfall" disabled>Show worst shortfall</button><button class="ghost" id="showPeakDemand" disabled>Show peak demand</button><button class="ghost" id="showMaxDump" disabled>Show maximum dump</button></div><div class="opsection"><h3>Supply-demand stack chart</h3><p class="small">Stacked supply shows how solar, wind, firm generation, Energy Storage System discharge, External Grid Interface imports and any unserved energy meet node demand over the selected period. Energy Storage System charging is shown below zero because it is load on the system.</p><div id="opLegend" class="legend hidden" aria-hidden="true"></div><p class="small">The chart legend is generated from active candidate-level series in the selected time window. Drag the legend box to reposition it.</p><div class="canvaswrap"><canvas id="dispatchCanvas" class="opcanvas"></canvas></div></div><h3>Dumped power and Energy Storage System charging</h3><p class="small">Positive values show dumped renewable power. Negative values show Energy Storage System charging, which absorbs surplus before dumping if it is economic and capacity is available.</p><div class="canvaswrap"><canvas id="dumpCanvas" class="opcanvas smallcanvas"></canvas></div><h3>Energy Storage System state of charge</h3><div class="canvaswrap"><canvas id="socCanvas" class="opcanvas smallcanvas"></canvas></div>
+<h3>Hourly marginal and average cash cost</h3><p class="small">Shows the selected plotted result: optimised system, user-entered system or plotted stress case. Marginal cost is a short-run cash-cost proxy from the highest-cost dispatched block in each hour, with unserved energy setting the Value of Lost Load when present. Average cash cost is hourly variable, import, carbon, unserved and dumping cash cost divided by served node demand. It is not a market price and it excludes capacity recovery. Summary figures below show full-year and selected-range averages. Click or tap a point on this chart to set the merit-order hour below.</p><div class="canvaswrap"><canvas id="cashCostCanvas" class="opcanvas smallcanvas"></canvas></div>
 <div class="orderbox"><div class="row meritrow"><div><label>Merit-order hour</label><input id="meritHour" type="number" value="0" min="0" step="1"></div><div><label>Selected timestamp</label><input id="meritHourLabel" type="text" value="-" readonly></div><button class="ghost" id="meritUseSliceStart" type="button">Use slice start</button><button class="ghost" id="meritUseMaxMarginal" type="button">Highest marginal in slice</button><button class="ghost" id="meritUsePeakLoad" type="button">Peak load in slice</button></div><p class="small">The merit order is a cash-cost stack for the selected hour. It uses available candidate capacity in that hour, not a network dispatch curve. Storage is shown at its direct variable cost only; its opportunity value is not calculated without solver dual prices.</p></div>
 <h3>Merit order cost curve for selected hour</h3><div id="meritOrderSummary" class="statusline">Run or plot a solved result to populate the merit-order chart.</div><div class="canvaswrap"><canvas id="meritOrderCanvas" class="opcanvas smallcanvas"></canvas></div></div>
     <div class="card" style="margin-top:12px"><h3>Capacity table</h3><table id="capTable"></table><h3>Energy table</h3><table id="energyTable"></table><h3>Energy balance audit</h3><table id="auditTable"></table><h3>Optimal versus user system comparison</h3><table id="compareTable"></table><div class="buttons"><button class="ghost" id="exportResults" disabled>Export dispatch CSV</button></div></div>
@@ -2003,6 +2003,105 @@ bindFinanceCsvExportV099();updateStickySlicerFootprintV099();
 // ---- end v0.99 persistent slicer wrapping and finance CSV export ----
 
 // ---- end v0.98 finance layer ----
+
+
+// ---- v1.00 operational chart render cap and cash-cost averages ----
+(function(){
+const OP_CHART_MAX_HOURS_V100=720;
+function ensureV100Styles(){
+  if(document.getElementById('v100Styles'))return;
+  const style=document.createElement('style');style.id='v100Styles';
+  style.textContent='.rendercapnote{border:1px solid #fde68a;background:#fffbeb;color:#78350f;border-radius:10px;padding:8px 10px;margin:8px 0;font-size:12px;line-height:1.4}.rendercapnote.good{border-color:#bbf7d0;background:#f0fdf4;color:#14532d}.cashcost-summary{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:8px;margin:8px 0 10px}.cashcost-summary .metric{border:1px solid #dbe3ee;background:#f8fafc;border-radius:10px;padding:8px}.cashcost-summary .label{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.04em}.cashcost-summary .value{font-size:16px;font-weight:800;color:#172033;margin-top:3px}.cashcost-summary .note{font-size:10px;color:#64748b;line-height:1.3;margin-top:3px}.cashcost-summary .marginal .value{color:#8B0000}.cashcost-summary .average .value{color:#006400}@media(max-width:900px){.cashcost-summary{grid-template-columns:repeat(2,minmax(120px,1fr))}}@media(max-width:520px){.cashcost-summary{grid-template-columns:1fr}}';
+  document.head.appendChild(style);
+}
+function clampRenderSliceV100(sl){
+  const start=Number(sl&&sl.start)||0,end=Number(sl&&sl.end)||start+1;
+  const selectedHours=Math.max(1,end-start);
+  if(selectedHours<=OP_CHART_MAX_HOURS_V100)return {start,end,selectedStart:start,selectedEnd:end,selectedHours,chartHours:selectedHours,capped:false};
+  return {start:start,end:Math.min(end,start+OP_CHART_MAX_HOURS_V100),selectedStart:start,selectedEnd:end,selectedHours,chartHours:Math.min(OP_CHART_MAX_HOURS_V100,end-start),capped:true};
+}
+function selectedSliceFromControlsV100(){
+  const r=activePlotResult(true)||state.results;
+  const h=(r&&r.inp&&r.inp.h)||Math.max(1,Math.round(n('horizon',8760))||8760);
+  const mode=s('opSliceMode','days');
+  let start=(Math.max(1,Math.round(n('opStartDay',1)))-1)*24;
+  let end=start+Math.max(1,Math.round(n('opDays',365)))*24;
+  if(mode==='hours'){
+    start+=clamp(Math.round(n('opStartHourOfDay',0)),0,23);
+    end=start+Math.max(1,Math.round(n('opWindowHours',24))||24);
+  }
+  start=clamp(start,0,Math.max(0,h-1));end=clamp(end,start+1,h);
+  return {start,end,hours:end-start};
+}
+function ensureRenderCapNoteV100(){
+  ensureV100Styles();
+  if($('opRenderCapNote'))return $('opRenderCapNote');
+  const canvas=$('dispatchCanvas');if(!canvas)return null;
+  const section=canvas.closest?canvas.closest('.opsection'):null;
+  const note=document.createElement('div');note.id='opRenderCapNote';note.className='rendercapnote';
+  const wrap=canvas.closest?canvas.closest('.canvaswrap'):null;
+  if(section&&wrap)section.insertBefore(note,wrap);else if(wrap&&wrap.parentNode)wrap.parentNode.insertBefore(note,wrap);
+  return note;
+}
+function updateRenderCapNoteV100(sl,cap){
+  const note=ensureRenderCapNoteV100();if(!note)return;
+  if(!cap||!cap.capped){note.className='rendercapnote good';note.textContent='Operational charts are rendering the full selected range of '+fnum((sl&&sl.hours)||0,0)+' hours. The performance cap is 720 hours, equal to 30 days.';return;}
+  note.className='rendercapnote';
+  note.textContent='Selected range is '+fnum(cap.selectedHours,0)+' hours. To keep the browser responsive, dense operational charts render the first '+fnum(cap.chartHours,0)+' hours only, from '+fmtDate(cap.start,cap.chartHours<=72?'hour':'day')+' to '+fmtDate(Math.max(cap.start,cap.end-1),cap.chartHours<=72?'hour':'day')+'. Demand-framing traces, annual totals and cash-cost averages still use the selected range or full year as labelled. Move the slicer window to inspect another 30-day block.';
+}
+function meanFiniteV100(arr,start,end){let total=0,count=0;for(let i=Math.max(0,start);i<Math.min(end,arr.length);i++){const v=Number(arr[i]);if(Number.isFinite(v)){total+=v;count++;}}return count?total/count:NaN;}
+function weightedAverageCashV100(data,start,end){let cash=0,served=0;for(let i=Math.max(0,start);i<Math.min(end,data.cash.length);i++){cash+=Number(data.cash[i])||0;served+=Number(data.served[i])||0;}return served>1e-9?cash/served:NaN;}
+function cashAveragePackV100(r,start,end){const data=cashCostSeries(r),h=(r&&r.inp&&r.inp.h)||data.average.length||0;return {yearAvg:weightedAverageCashV100(data,0,h),yearMarg:meanFiniteV100(data.marginal,0,h),rangeAvg:weightedAverageCashV100(data,start,end),rangeMarg:meanFiniteV100(data.marginal,start,end),hours:Math.max(0,end-start)};}
+function ensureCashCostSummaryV100(){
+  ensureV100Styles();
+  if($('cashCostSummary'))return $('cashCostSummary');
+  const canvas=$('cashCostCanvas');if(!canvas)return null;
+  const div=document.createElement('div');div.id='cashCostSummary';div.className='cashcost-summary';
+  const wrap=canvas.closest?canvas.closest('.canvaswrap'):null;
+  if(wrap&&wrap.parentNode)wrap.parentNode.insertBefore(div,wrap);else canvas.parentNode.insertBefore(div,canvas);
+  return div;
+}
+function fmtCashV100(cur,v){return Number.isFinite(v)?cur+' '+fnum(v,2)+'/MWh':'n/a';}
+function renderCashCostSummaryV100(r,selectedStart,selectedEnd,cap){
+  const el=ensureCashCostSummaryV100();if(!el||!r)return;
+  const cur=(r.inp&&r.inp.currency)||s('currency','USD');const p=cashAveragePackV100(r,selectedStart,selectedEnd);
+  el.innerHTML='<div class="metric average"><div class="label">Year-long avg cash cost</div><div class="value">'+fmtCashV100(cur,p.yearAvg)+'</div><div class="note">Served-MWh weighted over the full model horizon.</div></div>'+
+    '<div class="metric marginal"><div class="label">Year-long avg marginal cost</div><div class="value">'+fmtCashV100(cur,p.yearMarg)+'</div><div class="note">Simple hourly mean over the full model horizon.</div></div>'+
+    '<div class="metric average"><div class="label">Selected-range avg cash cost</div><div class="value">'+fmtCashV100(cur,p.rangeAvg)+'</div><div class="note">Served-MWh weighted over '+fnum(p.hours,0)+' selected hours.</div></div>'+
+    '<div class="metric marginal"><div class="label">Selected-range avg marginal cost</div><div class="value">'+fmtCashV100(cur,p.rangeMarg)+'</div><div class="note">Simple hourly mean over '+fnum(p.hours,0)+' selected hours.</div></div>';
+  if($('cashCostSummaryNote'))$('cashCostSummaryNote').textContent=cap&&cap.capped?'Chart is capped at 30 days; these selected-range averages use the full selected range.':'';
+}
+const renderCostChartsForActivePlot_v100=renderCostChartsForActivePlot;
+renderCostChartsForActivePlot=function(){
+  const r=activePlotResult(true);if(!r)return;
+  const sl=selectedSliceFromControlsV100();const cap=clampRenderSliceV100(sl);
+  renderCashCostSummaryV100(r,sl.start,sl.end,cap);
+  drawCashCostChart(r,cap.start,cap.end);
+  const mh=getMeritHour(r,sl.start,sl.end);
+  drawMeritOrderChart(r,mh);
+};
+const renderOperationalCharts_v100_prev=renderOperationalCharts;
+renderOperationalCharts=function(){
+  const selected=applyDaySlice(n('opStartDay',1),n('opDays',365));
+  const r=activePlotResult(true);
+  try{drawDemandFrame(selected.start,selected.end);}catch(_){ }
+  if(!r){updatePlotResultUi();updateStickySlicerFootprintV099&&updateStickySlicerFootprintV099();return;}
+  const cap=clampRenderSliceV100(selected);
+  updateRenderCapNoteV100(selected,cap);
+  renderLegend();updatePlotResultUi();
+  drawDispatch(r,cap.start,cap.end);drawDump(r,cap.start,cap.end);drawSoc(r,cap.start,cap.end);
+  renderCashCostSummaryV100(r,selected.start,selected.end,cap);
+  drawCashCostChart(r,cap.start,cap.end);
+  const mh=getMeritHour(r,selected.start,selected.end);drawMeritOrderChart(r,mh);
+  try{syncStickySlicerFromPrimary();updateStickyTimelineDisplayV098();alignStickySlicerToResultsPane();updateStickySlicerFootprintV099();}catch(_){ }
+};
+const showCashCostTooltip_v100=showCashCostTooltip;
+showCashCostTooltip=function(canvasId,event){showCashCostTooltip_v100(canvasId,event);};
+const buildProjectPackage_v100=buildProjectPackage;
+buildProjectPackage=function(includeResults){const pkg=buildProjectPackage_v100(includeResults);pkg.appVersion='1.00';return pkg;};
+if($('renderSlice'))$('renderSlice').addEventListener('click',()=>setTimeout(renderOperationalCharts,0));if($('meritHour'))$('meritHour').addEventListener('input',()=>setTimeout(renderCostChartsForActivePlot,0));ensureV100Styles();ensureRenderCapNoteV100();ensureCashCostSummaryV100();if(state.results)renderOperationalCharts();
+})();
+// ---- end v1.00 operational chart render cap and cash-cost averages ----
 
 })();
 </script>
