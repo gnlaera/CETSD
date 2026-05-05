@@ -1,4 +1,4 @@
-# Capacity Expansion and Dispatch Prototype v0.99
+# Capacity Expansion and Dispatch Prototype v1.03
 
 Single-file browser-only capacity expansion and time-sequential dispatch optimisation prototype.
 
@@ -8,26 +8,26 @@ Single-file browser-only capacity expansion and time-sequential dispatch optimis
 - `LICENSE.txt` - GNU General Public License version 3.
 - `README.md` - deployment and package notes.
 
-## What v0.99 adds
+## What v1.03 adds
 
-- Keeps the v0.98 linked cash-cost and merit-order workflow.
-- Improves the persistent bottom day-time slicer so controls wrap dynamically within the Results pane instead of being squeezed out.
-- Preserves the pivot-chart-style timeline band and resize handles in the persistent slicer.
-- Adds `Export finance CSV` for the `Discounted annual cash flow and system-wide P&L` section.
-- The finance export includes:
-  - finance summary,
-  - system-wide P&L,
-  - annual discounted cash-flow table,
-  - target-IRR tariff / finance LCOE,
-  - tax, depreciation, fixed cost and variable cash-cost assumptions.
-
-The finance layer is post-processing only. It does not change the capacity expansion objective, dispatch formulation, constraints or solver class.
+- Keeps the v1.01 storage-dispatch tie-breaker and storage-headroom audit checks.
+- Reframes the Renewables.ninja resource download controls around a single **Reference Calendar Year** rather than manual `Date from` and `Date to` fields.
+- Keeps hidden `dateFrom` and `dateTo` fields for backwards-compatible save/load JSON, generated as `YYYY-01-01` and `YYYY-12-31` from the selected calendar year.
+- Adds a wind **Turbine** dropdown using the current user-supplied Renewables.ninja preset list, with 270 built-in options.
+- Adds an optional **Refresh turbine list from Renewables.ninja** control that attempts to load live model metadata from `api/models` in the browser. If this is blocked by network or cross-origin restrictions, the full built-in v1.03 fallback list remains active.
+- Preserves saved custom turbine values if a setup JSON contains a turbine string that is not in the built-in or live dropdown list.
 
 ## Operating model
 
 The app is intended for learning, screening and subcommercial planning. It runs in a modern browser and uses HiGHS JavaScript/WebAssembly loaded by the browser. No local Python or local server is required for normal use.
 
-The preloaded example remains the compact embedded v0.51 mini-grid case. The app shell is v0.99.
+The preloaded example remains the compact embedded v0.51 mini-grid case. The app shell is v1.03.
+
+## Resource-profile workflow
+
+Use **Resource profiles** to select a location, dataset, Reference Calendar Year, solar assumptions and wind assumptions. The PV and wind CSV buttons generate Renewables.ninja point-download URLs for the selected full calendar year.
+
+The calendar-year dropdown is preset from 1980 to 2025 as a practical UI range for MERRA-2-style weather-year framing. Renewables.ninja account, dataset and service limits still apply. The app does not embed API tokens.
 
 ## Deployment
 
